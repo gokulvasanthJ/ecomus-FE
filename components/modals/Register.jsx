@@ -7,11 +7,9 @@ import useNavigate from "react-use-navigate";
 
 export default function Register() {
   
-  const navigate = useNavigate()
+  const navigate = useNavigate
 const handleRegister=async(e)=>{
 e.preventDefault()
-
-
 const data={
   firstname:e.target.firstname.value,
   lastname:e.target.lastname.value,
@@ -112,6 +110,7 @@ try {
                   {/* <Link
                     href={`/register`}
                     className="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
+                    type="submit"
                   >
                     <span>Register</span>
                   </Link> */}

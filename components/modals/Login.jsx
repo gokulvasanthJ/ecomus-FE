@@ -4,7 +4,7 @@ import axios from "axios";
 import useNavigate from "react-use-navigate";
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate
 
 
   
@@ -13,7 +13,7 @@ const handleLogin=async(e)=>{
   e.preventDefault()
   let data={
     email:e.target.email.value,
-    password:e.target.password.velue,
+    password:e.target.password.value,
   }
   try{
     const res=await axios.post("http://localhost:3001/api/user/login",data)
