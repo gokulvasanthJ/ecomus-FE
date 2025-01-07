@@ -114,7 +114,7 @@ try {
                   >
                     <span>Register</span>
                   </Link> */}
-                  <button type='submit' className="">Register</button>
+                  <button href="#login" type='submit' className="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center">Register</button>
                 </div>
                 <div className="w-100">
                   <a
