@@ -13,7 +13,7 @@ export default function Login() {
       password:e.target.password.value,
     }
     try{
-      const res=await axios.post("http://localhost:3001/api/user/login",data)
+      const res=await axios.post(`${process.env.REACT_APP_API_URL}api/user/login`,data)
       console.log('hello world');
       if(res.status==200){
         alert(res.data.message)
