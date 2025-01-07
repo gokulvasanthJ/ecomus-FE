@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-// import Link from "next/link";
+import Link from "next/link";
 import axios from "axios";
 
 
 export default function Register() {
-  const apiurl= process.env.REACT_APP_API_URL;
 
   
 const handleRegister=async(e)=>{
@@ -19,7 +18,7 @@ const data={
 }
 try {
 
-  const res=await axios.post(`${apiurl}api/user/register`,data)
+  const res=await axios.post("https://ecomus-be.onrender.com/api/user/register",data)
   console.log('hello ');
 
   if(res.status===200){
