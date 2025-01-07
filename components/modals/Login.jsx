@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function Login() {
 
-const apiurl= process.env.BACKEND_URL;
+const apiurl= process.env.REACT_APP_API_URL;
   
 
 const handleLogin=async(e)=>{
@@ -19,7 +19,7 @@ const handleLogin=async(e)=>{
     if(res.status==200){
       alert(res.data.message)
       sessionStorage.setItem('token',res.data.token)
-      window.location.href = "/register";
+      window.location.href = "/";
     }
     }
     catch(error){

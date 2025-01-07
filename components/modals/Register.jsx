@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 export default function Register() {
-  const apiurl= process.env.BACKEND_URL;
+  const apiurl= process.env.REACT_APP_API_URL;
 
   
 const handleRegister=async(e)=>{
