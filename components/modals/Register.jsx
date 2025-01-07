@@ -6,7 +6,8 @@ import useNavigate from "react-use-navigate";
 
 
 export default function Register() {
-const navigate=useNavigate()
+  
+  const navigate = useNavigate()
 const handleRegister=async(e)=>{
 e.preventDefault()
 
@@ -20,7 +21,7 @@ const data={
 }
 try {
 
-  const res=await axios.post(`${process.env.BACK-ENDURL}api/user/register`,data)
+  const res=await axios.post("http://localhost:3001/api/user/register",data)
   console.log('hello ');
 
   if(res.status===200){
@@ -29,11 +30,12 @@ try {
   }
   
 } catch (error) {
-  if(error.res){
-    alert(error.res.data.message)
+  if(error.response){
+    alert(error.response.data.message)
 }
 
 
+}
 }
 
 
@@ -113,7 +115,7 @@ try {
                   >
                     <span>Register</span>
                   </Link> */}
-                  <button type='submit' className="register">Register</button>
+                  <button type='submit' className="">Register</button>
                 </div>
                 <div className="w-100">
                   <a
@@ -132,5 +134,4 @@ try {
       </div>
     </div>
   );
-}
 }

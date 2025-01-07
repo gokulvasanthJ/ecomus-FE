@@ -1,7 +1,37 @@
 "use client";
 import React from "react";
+import axios from "axios";
+import useNavigate from "react-use-navigate";
 
 export default function Login() {
+  const navigate = useNavigate()
+
+
+  
+
+const handleLogin=async(e)=>{
+  e.preventDefault()
+  let data={
+    email:e.target.email.value,
+    password:e.target.password.velue,
+  }
+  try{
+    const res=await axios.post("http://localhost:3001/api/user/login",data)
+    console.log('hello world');
+    if(res.status==200){
+      alert(res.data.message)
+      sessionStorage.setItem('token',res.data.token)
+      navigate('/home')
+    }
+    }
+    catch(error){
+      if(error.res){
+        alert(error.res.data.messae)
+      }
+    }
+  }
+
+
   return (
     <div
       className="modal modalCentered fade form-sign-in modal-part-content"
@@ -18,7 +48,7 @@ export default function Login() {
           </div>
           <div className="tf-login-form">
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleLogin}
               className=""
               acceptCharset="utf-8"
             >
@@ -27,7 +57,7 @@ export default function Login() {
                   className="tf-field-input tf-input"
                   placeholder=" "
                   type="email"
-                  name=""
+                  name="email"
                   required
                   autoComplete="abc@xyz.com"
                 />
@@ -40,7 +70,7 @@ export default function Login() {
                   className="tf-field-input tf-input"
                   placeholder=" "
                   type="password"
-                  name=""
+                  name="password"
                   required
                   autoComplete="current-password"
                 />
