@@ -5,6 +5,8 @@ import axios from "axios";
 
 
 export default function Register() {
+  const apiurl= process.env.BACKEND_URL;
+
   
 const handleRegister=async(e)=>{
 e.preventDefault()
@@ -17,7 +19,7 @@ const data={
 }
 try {
 
-  const res=await axios.post(`${process.env.BACKEND_URL}/api/user/register`,data)
+  const res=await axios.post(`${apiurl}api/user/register`,data)
   console.log('hello ');
 
   if(res.status===200){

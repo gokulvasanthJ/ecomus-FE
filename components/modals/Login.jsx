@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function Login() {
 
-
+const apiurl= process.env.BACKEND_URL;
   
 
 const handleLogin=async(e)=>{
@@ -14,7 +14,7 @@ const handleLogin=async(e)=>{
     password:e.target.password.value,
   }
   try{
-    const res=await axios.post(`${process.env.BACKEND_URL}/api/user/login`,data)
+    const res=await axios.post(`${apiurl}api/user/login`,data)
     console.log('hello world');
     if(res.status==200){
       alert(res.data.message)
