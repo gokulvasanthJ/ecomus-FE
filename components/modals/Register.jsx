@@ -7,7 +7,7 @@ import useNavigate from "react-use-navigate";
 
 export default function Register() {
   
-  const navigate = useNavigate
+  const navigate = useNavigate()
 const handleRegister=async(e)=>{
 e.preventDefault()
 const data={

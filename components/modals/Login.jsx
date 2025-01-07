@@ -4,7 +4,7 @@ import axios from "axios";
 import useNavigate from "react-use-navigate";
 
 export default function Login() {
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
 
   
