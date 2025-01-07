@@ -18,7 +18,7 @@ const handleRegister=async(e)=>{
   }
   try {
   
-    const res=await axios.post(`${process.env.REACT_APP_API_URL}api/user/register`,data)
+    const res=await axios.post(`${process.env.BACKEND_URL}/api/user/register`,data)
     console.log('hello ');
   
     if(res.status===200){
