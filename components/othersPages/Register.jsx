@@ -1,7 +1,42 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import axios from "axios";
+
 export default function Register() {
+
+
+  
+const handleRegister=async(e)=>{
+  e.preventDefault()
+  const data={
+    firstname:e.target.firstname.value,
+    lastname:e.target.lastname.value,
+    email:e.target.email.value,
+    password:e.target.password.value
+    
+  }
+  try {
+  
+    const res=await axios.post("http://localhost:3001/api/user/register",data)
+    console.log('hello ');
+  
+    if(res.status===200){
+      alert(res.data.message)
+      window.location.href = "/login";
+    }
+    
+  } catch (error) {
+    if(error.response){
+      alert(error.response.data.message)
+  }
+  
+  
+  }
+  }
+  
+  
+
   return (
     <section className="flat-spacing-10">
       <div className="container">
@@ -15,7 +50,7 @@ export default function Register() {
           </div>
           <div>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleRegister}
               className=""
               id="register-form"
               action="#"
@@ -29,7 +64,7 @@ export default function Register() {
                   placeholder=" "
                   type="text"
                   id="property1"
-                  name="first name"
+                  name="firstname"
                   required
                 />
                 <label
@@ -45,7 +80,7 @@ export default function Register() {
                   placeholder=" "
                   type="text"
                   id="property2"
-                  name="last name"
+                  name="lastname"
                   required
                 />
                 <label

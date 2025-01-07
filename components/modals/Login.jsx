@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import axios from "axios";
-import useNavigate from "react-use-navigate";
 
 export default function Login() {
-  const navigate = useNavigate()
 
 
   
@@ -21,7 +19,7 @@ const handleLogin=async(e)=>{
     if(res.status==200){
       alert(res.data.message)
       sessionStorage.setItem('token',res.data.token)
-      navigate('/home')
+      window.location.href = "/register";
     }
     }
     catch(error){

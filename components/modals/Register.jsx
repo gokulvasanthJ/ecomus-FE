@@ -2,12 +2,10 @@
 import React from "react";
 // import Link from "next/link";
 import axios from "axios";
-import useNavigate from "react-use-navigate";
 
 
 export default function Register() {
   
-  const navigate = useNavigate()
 const handleRegister=async(e)=>{
 e.preventDefault()
 const data={
@@ -24,7 +22,7 @@ try {
 
   if(res.status===200){
     alert(res.data.message)
-    navigate('/login')
+    window.location.href = "/login";
   }
   
 } catch (error) {

@@ -1,7 +1,33 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import axios from "axios";
 export default function Login() {
+
+
+
+  const handleLogin=async(e)=>{
+    e.preventDefault()
+    let data={
+      email:e.target.email.value,
+      password:e.target.password.value,
+    }
+    try{
+      const res=await axios.post("http://localhost:3001/api/user/login",data)
+      console.log('hello world');
+      if(res.status==200){
+        alert(res.data.message)
+        sessionStorage.setItem('token',res.data.token)
+        window.location.href = "/";
+      }  
+      }
+      catch(error){
+        if(error.res){
+          alert(error.res.data.messae)
+        }
+      }
+    }
+
   return (
     <section className="flat-spacing-10">
       <div className="container">
@@ -13,7 +39,7 @@ export default function Login() {
                 We will send you an email to reset your password
               </p>
               <div>
-                <form onSubmit={(e) => e.preventDefault()} className="">
+                <form  className="">
                   <div className="tf-field style-1 mb_15">
                     <input
                       className="tf-field-input tf-input"
@@ -50,7 +76,8 @@ export default function Login() {
             <div id="login">
               <h5 className="mb_36">Log in</h5>
               <div>
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={handleLogin}
+                >
                   <div className="tf-field style-1 mb_15">
                     <input
                       required
